@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 import BrandModel from "../models/hangSanXuat.model.js";
 import CategoryModel from "../models/danhMuc.model.js";
 import ProductModel from "../models/sanPham.model.js";
@@ -5,6 +7,7 @@ import SizeModel from "../models/kichCo.model.js";
 import { formatVNCurrency } from "../utils/format.js";
 
 export async function renderProductPage(req, res) {
+    console.log(mongoose.modelNames());
     const brands = await BrandModel.find(); // Change this line after merge code
     const categories = await CategoryModel.find({ trangThaiXoa: false });
     const sizes = await SizeModel.find();
